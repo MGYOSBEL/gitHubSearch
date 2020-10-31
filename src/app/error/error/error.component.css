@@ -1,0 +1,15 @@
+
+.error-container {
+  display: flex;
+  /* color: #a94442; */
+  color: white;
+  /* background-color: #f2dede; */
+  background-color:rgb(148,42,44);
+  /* border: 1px solid #ebccd1; */
+  /* padding: 20px; */
+  height: auto;
+  font-family: Roboto;
+  position: relative;
+  text-align: center;
+}
+

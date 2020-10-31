@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { UsersListModule } from './users-list/users-list.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingModule } from './loading/loading.module';
+import { ServerErrorInterceptor } from './services/server-error-interceptor.service';
+import { ErrorModule } from './error/error.module';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,14 @@ import { LoadingModule } from './loading/loading.module';
     UsersListModule,
     HttpClientModule,
     AppRoutingModule,
-    LoadingModule
+    LoadingModule,
+    ErrorModule,
+    ErrorModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService},
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
