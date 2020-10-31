@@ -7,7 +7,7 @@
       <app-user-card [user]="user" (detail)="onUserDetail($event)"></app-user-card>
     </div>
     <ng-container *ngIf="users.length === 0">
-      <div class="display-4">Your search criteria did not match any result. Please type a criteria in the search box. </div>
+      <h5 class="empty-list-message">Your search criteria did not match any result. Please type a criteria in the search box. </h5>
     </ng-container>
   </div>
 </ng-template>
