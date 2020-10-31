@@ -20,7 +20,7 @@ export class SearchService {
   ) { }
 
   getUsersByName(username: string) {
-    this.userService.getUsersByName(username).pipe(
+    this.userService.findUsersByName(username).pipe(
       tap(() => this.closeUserDetail())
     ).subscribe(
       users => this.usersSubject.next(users.items)
@@ -35,5 +35,13 @@ export class SearchService {
   closeUserDetail() {
     console.log('closeUserDetail');
     this.userDetailSubject.next(null);
+  }
+
+  getUserRepositories(repositoriesURL: string) {
+    return this.userService.getUserRepositories(repositoriesURL);
+  }
+
+  getUserFollowers(followersURL: string) {
+    return this.userService.getUserFollowers(followersURL);
   }
 }

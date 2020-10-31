@@ -14,12 +14,18 @@ export class UserService {
     private http: HttpClient,
     private loading: LoadingService) {}
 
-  getUsersByName(username: string) {
+  findUsersByName(username: string) {
     const users$ = this.http.get<any>(`${this.apiUrl}?q=${username}&per_page=30`);
     return this.loading.showLoaderUntilCompletes(users$);
   }
   getUserByURL(url: string) {
     const user$ = this.http.get<GitHubUser>(url);
     return this.loading.showLoaderUntilCompletes(user$);
+  }
+  getUserRepositories(repositoriesURL: string) {
+    return this.http.get<any[]>(repositoriesURL);
+  }
+  getUserFollowers(followersURL: string) {
+    return this.http.get<any[]>(followersURL);
   }
 }
