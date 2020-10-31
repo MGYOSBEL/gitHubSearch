@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarModule } from './navbar/navbar.module';
+import { UsersListModule } from './users-list/users-list.module';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingModule } from './loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NavbarModule,
+    UsersListModule,
+    HttpClientModule,
+    AppRoutingModule,
+    LoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

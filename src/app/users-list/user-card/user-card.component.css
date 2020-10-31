@@ -1,0 +1,76 @@
+#avatar-img {
+  border-color: #2787c4;
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  object-fit: cover;
+  max-width: none;
+}
+
+.user-name {
+  color: #2787c4;
+  font-weight: light;
+  font-size: 1.2rem;
+}
+
+.column-title {
+  color: #605c61;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 11px 11px 0 rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+  transform: translateX(5px);
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #bcbebc;
+  transition: 200ms;
+}
+
+/*Overview 1201px*/
+@media only screen and (max-width: 1200.99px) {
+  .user-name {
+    margin-left: 1rem !important;
+  }
+}
+
+/*Overview 768px*/
+@media only screen and (max-width: 767.99px) {
+  #card-row {
+    padding-left: 0;
+  }
+  #avatar-col {
+    text-align: center;
+  }
+  #avatar-img {
+    margin-left: 0.5rem !important;
+  }
+  .card:hover {
+    box-shadow: none;
+    transform: none;
+    transition: none;
+  }
+  .user-name {
+    margin-left: 0rem !important;
+  }
+}
+
+/*Overview 415*/
+@media only screen and (max-width: 414.99px) {
+  .user-name {
+    margin-left: 0.5rem !important;
+  }
+}
+
+/*Overview 375px*/
+@media only screen and (max-width: 374.99px) {
+  .user-name {
+    font-size: 1rem !important;
+  }
+  #avatar-img {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+}

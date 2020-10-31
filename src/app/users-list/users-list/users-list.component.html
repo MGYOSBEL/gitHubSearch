@@ -1,0 +1,10 @@
+<ng-container *ngIf="detail$ | async as userDetail; else listTemplate">
+  <app-user-detail [user]="userDetail" (closeDetail)="onCloseDetail()"></app-user-detail>
+</ng-container>
+<ng-template #listTemplate>
+  <div class="col-12 col-md-6 container"*ngIf="(users$ | async) as users">
+    <div class="" *ngFor="let user of users">
+      <app-user-card [user]="user" (detail)="onUserDetail($event)"></app-user-card>
+    </div>
+  </div>
+</ng-template>

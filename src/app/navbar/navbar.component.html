@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">GitHubSearch</a>
+  <form class="form-inline" [formGroup]="searchForm">
+    <input class="form-control mr-sm-2" type="search" formControlName="searchInput" placeholder="Search" aria-label="Search">
+    <!-- <button
+      class="btn btn-outline-primary my-2 my-sm-0"
+      type="submit"
+      (click)="onSearch()"
+      [disabled]="searchForm.invalid">Search</button> -->
+  </form>
+</nav>
