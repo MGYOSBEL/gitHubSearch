@@ -18,7 +18,7 @@ export class ErrorComponent implements OnInit, OnDestroy {
   errortimer$;
   messagetimer$;
   constructor(private messagesService: MessagesService) {
-    this.errortimer$ = interval(15000).pipe(
+    this.errortimer$ = interval(5000).pipe(
       take(1),
       tap(() => {
         this.showErrors = false;
