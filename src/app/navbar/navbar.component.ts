@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { SearchService } from '../services/search.service';
-import { filter } from 'rxjs/operators';
+import { filter, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +25,9 @@ export class NavbarComponent implements OnInit {
     );
 
     this.searchForm.valueChanges.pipe(
-      filter(value => value.searchInput.length > 2)
+      filter(value => value.searchInput.length > 2),
+      debounceTime(500),
+      distinctUntilChanged(),
     ).subscribe(
       () => this.onSearch()
     );

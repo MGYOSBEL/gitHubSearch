@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "githubSearch": "githubsearch-2ffd9",
+    "default": "githubsearch-2ffd9"
+  },
+  "targets": {
+    "githubsearch-2ffd9": {
+      "hosting": {
+        "gitHubSearch": [
+          "githubsearch-2ffd9"
+        ]
+      }
+    }
+  }
+}
