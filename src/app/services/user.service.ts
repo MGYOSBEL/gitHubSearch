@@ -8,14 +8,15 @@ import { LoadingService } from './loading.service';
 })
 export class UserService {
 
-  apiUrl = 'https://api.github.com/search/users';
+  apiUrl = 'https://api.github.com';
+  apiUserSearchUrl = `${this.apiUrl}/search/users`;
 
   constructor(
     private http: HttpClient,
     private loading: LoadingService) {}
 
   findUsersByName(username: string) {
-    const users$ = this.http.get<any>(`${this.apiUrl}?q=${username}&per_page=30`);
+    const users$ = this.http.get<any>(`${this.apiUserSearchUrl}?q=${username}&per_page=30`);
     return this.loading.showLoaderUntilCompletes(users$);
   }
   getUserByURL(url: string) {
@@ -27,5 +28,8 @@ export class UserService {
   }
   getUserFollowers(followersURL: string) {
     return this.http.get<any[]>(followersURL);
+  }
+  getUserByUsername(username: string) {
+    return this.http.get<GitHubUser>(`${this.apiUrl}/users/${username}`);
   }
 }

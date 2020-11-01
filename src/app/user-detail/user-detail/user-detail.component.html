@@ -1,4 +1,4 @@
-<ng-container *ngIf="!!user">
+<ng-container *ngIf="user$ | async as user">
   <div class="col container mt-2">
     <div class="row justify-content-around">
       <div class="col-12 col-md-3">
@@ -6,9 +6,9 @@
           <img class="img img-fluid rounded-circle" [src]="user.avatar_url" alt="Card image cap">
         </div>
         <div class="row mt-2">
-          <button class="btn btn-link p-0" (click)="close()">
+          <a [routerLink]="['/users']" routerLinkActive="active" [queryParams]="{q: query}">
             <small>Close Profile</small>
-          </button>
+          </a>
         </div>
         <div class="row">
           <a [href]="user.html_url" target="_blank">

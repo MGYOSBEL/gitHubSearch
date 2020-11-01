@@ -20,10 +20,9 @@ import { GlobalErrorHandlerService } from './services/global-error-handler.servi
     NavbarModule,
     UsersListModule,
     HttpClientModule,
-    AppRoutingModule,
     LoadingModule,
     ErrorModule,
-    ErrorModule
+    AppRoutingModule,
   ],
   providers: [
     {provide: ErrorHandler, useClass: GlobalErrorHandlerService},

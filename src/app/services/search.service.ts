@@ -32,8 +32,12 @@ export class SearchService {
       userDetail => this.userDetailSubject.next(userDetail)
     );
   }
+
+  getUserByUsername(username: string) {
+    return this.userService.getUserByUsername(username);
+  }
+
   closeUserDetail() {
-    console.log('closeUserDetail');
     this.userDetailSubject.next(null);
   }
 

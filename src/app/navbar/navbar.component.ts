@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { SearchService } from '../services/search.service';
 import { filter, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private searchService: SearchService
   ) { }
 
@@ -46,7 +48,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   onSearch() {
     const term = this.searchForm.value.searchInput;
-    this.searchService.getUsersByName(term);
+    // this.searchService.getUsersByName(term); // cambiar por la navegacion con queryparams
+    this.router.navigate(['users'], {queryParams: {q: term} });
   }
 
   ngOnDestroy() {
