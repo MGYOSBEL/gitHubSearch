@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
 import { Observable, Subject } from 'rxjs';
 import { GitHubUser } from 'src/app/models/github-user.model';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { switchMap, tap, takeUntil, filter } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { tap, takeUntil, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users-list',
@@ -42,10 +42,6 @@ export class UsersListComponent implements OnInit, OnDestroy {
 
   onUserDetail(user) {
     this.router.navigate(['users', user.login], {queryParams: {q: this.query}});
-  }
-
-  onCloseDetail() {
-    this.searchService.closeUserDetail();
   }
 
   ngOnDestroy() {

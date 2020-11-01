@@ -42,9 +42,7 @@ export class ErrorComponent implements OnInit, OnDestroy {
     this.showErrors = false;
   }
 
-  ngOnDestroy(): void {
-    // Called once, before the instance is destroyed.
-    // Add 'implements OnDestroy' to the class.
+  ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

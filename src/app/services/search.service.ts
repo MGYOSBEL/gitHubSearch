@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { BehaviorSubject } from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { GitHubUser } from '../models/github-user.model';
 
 @Injectable({
@@ -20,25 +20,14 @@ export class SearchService {
   ) { }
 
   getUsersByName(username: string) {
-    this.userService.findUsersByName(username).pipe(
-      tap(() => this.closeUserDetail())
-    ).subscribe(
-      users => this.usersSubject.next(users.items)
-    );
-  }
-
-  viewUserDetail(user: GitHubUser) {
-    this.userService.getUserByURL(user.url).subscribe(
-      userDetail => this.userDetailSubject.next(userDetail)
-    );
+    this.userService.findUsersByName(username)
+      .subscribe(
+        users => this.usersSubject.next(users)
+      );
   }
 
   getUserByUsername(username: string) {
     return this.userService.getUserByUsername(username);
-  }
-
-  closeUserDetail() {
-    this.userDetailSubject.next(null);
   }
 
   getUserRepositories(repositoriesURL: string) {

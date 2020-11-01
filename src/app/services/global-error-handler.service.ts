@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { MessageSpan } from '@angular/compiler/src/i18n/i18n_ast';
 import { MessagesService } from './message.service';
 
 @Injectable({
