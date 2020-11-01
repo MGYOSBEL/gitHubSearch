@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand">GitHubSearch</a>
+  <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active" >GitHubSearch</a>
   <form class="form-inline" [formGroup]="searchForm" (onsubmit)="onSearch()">
     <input class="form-control mr-sm-2" type="search" formControlName="searchInput" placeholder="Search" aria-label="Search">
   </form>

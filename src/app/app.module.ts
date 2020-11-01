@@ -10,6 +10,8 @@ import { LoadingModule } from './loading/loading.module';
 import { ServerErrorInterceptor } from './services/server-error-interceptor.service';
 import { ErrorModule } from './error/error.module';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { GlobalErrorHandlerService } from './services/global-error-handler.servi
     LoadingModule,
     ErrorModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {provide: ErrorHandler, useClass: GlobalErrorHandlerService},
