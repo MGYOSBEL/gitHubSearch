@@ -28,17 +28,6 @@
   ],
   "dataGroups": [
     {
-      "name": "api-performance",
-      "cacheConfig": {
-        "strategy": "performance",
-        "maxAge": "1d",
-        "maxSize": 100
-      },
-      "urls": [
-        "**/search/users**"
-      ]
-    },
-    {
       "name": "api-freshness",
       "cacheConfig": {
         "strategy": "freshness",
@@ -49,6 +38,18 @@
       "urls": [
         "**/repos**",
         "**/followers**"
+      ]
+    },
+    {
+      "name": "api-performance",
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "1d",
+        "maxSize": 100
+      },
+      "urls": [
+        "https://api.github.com/search/users**",
+        "https://api.github.com/users**"
       ]
     }
   ]
