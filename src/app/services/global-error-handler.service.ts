@@ -12,7 +12,6 @@ export class GlobalErrorHandlerService {
   }
 
   handleError(error) {
-    console.log('GLOBAL HANDLE ERROR', error);
     this.messagesService.showErrors(error.message || 'Unexpected ERROR');
   }
 }

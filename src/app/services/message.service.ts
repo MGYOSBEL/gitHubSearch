@@ -16,7 +16,6 @@ export class MessagesService {
   constructor() { }
 
   showErrors(...errors: string[]) {
-    console.log('MESSAGE SERVICE', errors);
     this.errorSubject.next(errors);
   }
 
